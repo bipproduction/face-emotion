@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,19 @@
   <title>Document</title>
   <script defer src="face-api.min.js"></script>
   <script type="module" defer src="script9.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function (registration) {
+          console.log('Service Worker berhasil terdaftar:', registration);
+        })
+        .catch(function (error) {
+          console.log('Service Worker gagal terdaftar:', error);
+        });
+    }
+  </script>
+
   <style>
     body {
       margin: 0;
@@ -23,10 +37,12 @@
     }
   </style>
 </head>
+
 <body>
   <video id="video" width="720" height="560" autoplay muted></video>
   <script>
-    
+
   </script>
 </body>
+
 </html>
